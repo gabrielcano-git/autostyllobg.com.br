@@ -13,10 +13,10 @@ portas:
 destaque:
 opcionais: []
 imagens:
-  - "https://autostyllobg.com.br/wp-content/uploads/2026/04/xmax-1.jpeg"
-  - "https://autostyllobg.com.br/wp-content/uploads/2026/04/xmax-6.jpeg"
-  - "https://autostyllobg.com.br/wp-content/uploads/2026/04/xmax-5.jpeg"
-  - "https://autostyllobg.com.br/wp-content/uploads/2026/04/xmax-3.jpeg"
-  - "https://autostyllobg.com.br/wp-content/uploads/2026/04/xmax-4.jpeg"
-  - "https://autostyllobg.com.br/wp-content/uploads/2026/04/xmax-2.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/xmax-1.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/xmax-6.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/xmax-5.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/xmax-3.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/xmax-4.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/xmax-2.jpeg"
 ---

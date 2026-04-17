@@ -13,7 +13,7 @@ require 'cgi'
 require 'set'
 require 'uri'
 
-API_BASE   = 'https://autostyllobg.com.br/wp-json/wp/v2'
+API_BASE   = 'https://gabrielcanowp-djfpn.wpcomstaging.com/wp-json/wp/v2'
 ROOT_DIR   = File.expand_path('..', __dir__)
 CARROS_DIR = File.join(ROOT_DIR, '_carros')
 BANNERS_DIR = File.join(ROOT_DIR, '_banners')

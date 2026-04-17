@@ -13,8 +13,8 @@ portas:
 destaque:
 opcionais: []
 imagens:
-  - "https://autostyllobg.com.br/wp-content/uploads/2026/04/RED-1.jpeg"
-  - "https://autostyllobg.com.br/wp-content/uploads/2026/04/WhatsApp-Image-2026-01-28-at-16.58.30.jpeg"
-  - "https://autostyllobg.com.br/wp-content/uploads/2026/04/WhatsApp-Image-2026-01-28-at-16.58.29-4.jpeg"
-  - "https://autostyllobg.com.br/wp-content/uploads/2026/04/WhatsApp-Image-2026-01-28-at-16.58.29-3.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/RED-1.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-01-28-at-16.58.30.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-01-28-at-16.58.29-4.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-01-28-at-16.58.29-3.jpeg"
 ---
