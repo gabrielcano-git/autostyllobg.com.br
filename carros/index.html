@@ -1,0 +1,75 @@
+---
+layout: default
+title: Carros
+description: Veja nosso estoque completo de veículos.
+permalink: /carros/
+---
+
+<section class="section">
+  <div class="container">
+    <h1 class="section__titulo">Nosso Estoque</h1>
+
+    <!-- Filtros -->
+    <div class="filtros" id="filtros">
+      <div class="filtros__grupo">
+        <label for="filtro-marca">Marca</label>
+        <select id="filtro-marca">
+          <option value="">Todas</option>
+          {% assign marcas = site.carros | where_exp: "c", "c.marca" | map: "marca" | uniq | sort %}
+          {% for marca in marcas %}
+            {% if marca %}
+            <option value="{{ marca }}">{{ marca }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="filtros__grupo">
+        <label for="filtro-combustivel">Combustível</label>
+        <select id="filtro-combustivel">
+          <option value="">Todos</option>
+          {% assign combustiveis = site.carros | where_exp: "c", "c.combustivel" | map: "combustivel" | uniq | sort %}
+          {% for comb in combustiveis %}
+            {% if comb %}
+            <option value="{{ comb }}">{{ comb }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="filtros__grupo">
+        <label for="filtro-cambio">Câmbio</label>
+        <select id="filtro-cambio">
+          <option value="">Todos</option>
+          {% assign cambios = site.carros | where_exp: "c", "c.cambio" | map: "cambio" | uniq | sort %}
+          {% for cambio in cambios %}
+            {% if cambio %}
+            <option value="{{ cambio }}">{{ cambio }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+      </div>
+
+      <button class="btn btn--outline btn--sm" id="limpar-filtros">Limpar filtros</button>
+    </div>
+
+    <!-- Grid de carros -->
+    {% if site.carros.size > 0 %}
+    <div class="carros-grid" id="carros-grid">
+      {% for carro in site.carros %}
+      <div
+        class="carro-grid-item"
+        data-marca="{{ carro.marca | downcase }}"
+        data-combustivel="{{ carro.combustivel | downcase }}"
+        data-cambio="{{ carro.cambio | downcase }}"
+      >
+        {% include carro-card.html %}
+      </div>
+      {% endfor %}
+    </div>
+    <p class="carros-vazio" id="carros-vazio" style="display:none;">Nenhum carro encontrado com esses filtros.</p>
+    {% else %}
+    <p class="texto-centro">Nenhum carro cadastrado ainda. Volte em breve!</p>
+    {% endif %}
+  </div>
+</section>

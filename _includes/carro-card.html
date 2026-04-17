@@ -1,0 +1,33 @@
+<article class="carro-card">
+  <a href="{{ carro.url | relative_url }}" class="carro-card__link">
+    <div class="carro-card__img">
+      {% if carro.imagens and carro.imagens.size > 0 %}
+        <img src="{{ carro.imagens[0] }}" alt="{{ carro.title }}" loading="lazy" class="img-fluid" />
+      {% else %}
+        <div class="carro-card__sem-foto">Sem foto</div>
+      {% endif %}
+    </div>
+
+    <div class="card-body">
+      <h6 class="carro-card__titulo">{{ carro.title }}</h6>
+      <div class="carro-card__preco c-primary">
+        {% if carro.preco %}R$ {{ carro.preco }}{% else %}Consulte{% endif %}
+      </div>
+    </div>
+
+    <ul class="down-content">
+      {% if carro.ano %}
+      <li><i class="flaticon-calendar"></i> {{ carro.ano }}</li>
+      {% endif %}
+      {% if carro.km %}
+      <li><i class="flaticon-clock"></i> {{ carro.km }} km</li>
+      {% endif %}
+      {% if carro.combustivel %}
+      <li><i class="flaticon-fuel"></i> {{ carro.combustivel }}</li>
+      {% endif %}
+      {% if carro.cambio %}
+      <li><i class="flaticon-transport-2"></i> {{ carro.cambio }}</li>
+      {% endif %}
+    </ul>
+  </a>
+</article>

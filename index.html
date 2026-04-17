@@ -1,1 +1,92 @@
-autostyllobg.com.br
+---
+layout: home
+title: Início
+---
+
+<!-- Banners / Hero -->
+{% assign banners_ativos = site.banners | where: "ativo", true %}
+{% if banners_ativos.size > 0 %}
+<section class="py-0 hero-section" id="hero-slider">
+  <div id="banner-home" class="banner-slider">
+    {% for banner in banners_ativos %}
+    <div class="banner-item{% if forloop.first %} active{% endif %}">
+      {% if banner.imagem %}
+      <div class="banner-item__img">
+        <img src="{{ banner.imagem }}" alt="{{ banner.title }}" />
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+    {% if banners_ativos.size > 1 %}
+    <button class="banner-prev" aria-label="Anterior">&#8592;</button>
+    <button class="banner-next" aria-label="Próximo">&#8594;</button>
+    {% endif %}
+  </div>
+</section>
+{% else %}
+<section class="hero-fallback">
+  <div class="hero-fallback__overlay"></div>
+  <div class="container hero-fallback__content">
+    <h1>Encontre o carro dos seus sonhos</h1>
+    <p>As melhores ofertas em veículos novos e seminovos.</p>
+    <a href="{{ '/carros/' | relative_url }}" class="btn btn--primary btn--lg">Ver estoque</a>
+  </div>
+</section>
+{% endif %}
+
+<!-- Estoque -->
+{% assign carros_home = site.carros | limit: 6 %}
+{% if carros_home.size > 0 %}
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center mb-4">
+      <h3 class="section__titulo">Estoque</h3>
+    </div>
+
+    <div class="carros-grid">
+      {% for carro in carros_home %}
+        {% include carro-card.html %}
+      {% endfor %}
+    </div>
+
+    <div class="section__rodape">
+      <a href="{{ '/carros/' | relative_url }}" class="btn btn--primary">Ver todo o estoque</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Nossas Marcas -->
+{% assign marcas_home = site.carros | where_exp: "c", "c.marca" | map: "marca" | uniq | sort %}
+{% if marcas_home.size > 0 %}
+<section class="section section--cinza">
+  <div class="container">
+    <div class="row justify-content-center mb-4">
+      <h3 class="section__titulo">Nossas Marcas</h3>
+    </div>
+    <div class="marcas-grid">
+      {% for marca in marcas_home %}
+      <a href="{{ '/carros/' | relative_url }}" class="marca-item">
+        <span>{{ marca }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- CTA WhatsApp -->
+<section class="section section--cta">
+  <div class="container">
+    <h2>Gostou de algum veículo?</h2>
+    <p>Fale com a gente agora mesmo pelo WhatsApp e agende uma visita!</p>
+    <a
+      href="https://wa.me/{{ site.concessionaria.whatsapp }}"
+      class="btn btn--whatsapp btn--lg"
+      target="_blank"
+      rel="noopener"
+    >
+      <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+    </a>
+  </div>
+</section>

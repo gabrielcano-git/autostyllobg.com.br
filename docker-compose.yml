@@ -1,0 +1,28 @@
+services:
+  jekyll:
+    image: jekyll/jekyll:4.2.2
+    container_name: autostyllobg_jekyll
+    command: jekyll serve --livereload --force_polling --drafts
+    ports:
+      - "4000:4000"
+      - "35729:35729"
+    volumes:
+      - .:/srv/jekyll
+      - bundle_cache:/usr/local/bundle
+    environment:
+      - JEKYLL_ENV=development
+
+  import:
+    image: jekyll/jekyll:4.2.2
+    container_name: autostyllobg_import
+    profiles:
+      - import
+    command: >
+      sh -c "gem install jekyll-import hpricot open_uri_redirections nokogiri &&
+             ruby /srv/jekyll/import.rb"
+    volumes:
+      - .:/srv/jekyll
+      - bundle_cache:/usr/local/bundle
+
+volumes:
+  bundle_cache:

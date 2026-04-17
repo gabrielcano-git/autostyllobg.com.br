@@ -1,0 +1,80 @@
+<footer class="site-footer">
+  <div class="footer">
+    <div class="container">
+      <div class="footer__grid">
+
+        <!-- Col 1: Marcas -->
+        <div class="footer__col">
+          {% assign marcas_footer = site.carros | where_exp: "c", "c.marca" | map: "marca" | uniq | sort %}
+          {% if marcas_footer.size > 0 %}
+          <h6>Marcas</h6>
+          <ul class="footer-links">
+            {% for marca in marcas_footer %}
+            <li>
+              <a href="{{ '/carros/' | relative_url }}">{{ marca }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+
+        <!-- Col 2: Mapa do site -->
+        <div class="footer__col">
+          <h6>Mapa do Site</h6>
+          <ul class="footer-links">
+            <li><a href="{{ '/' | relative_url }}">Início</a></li>
+            <li><a href="{{ '/carros/' | relative_url }}">Carros</a></li>
+            <li><a href="{{ '/sobre/' | relative_url }}">Sobre Nós</a></li>
+            <li><a href="{{ '/contato/' | relative_url }}">Contato</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Contato -->
+        <div class="footer__col">
+          <h6>Contato</h6>
+          <ul class="footer-address">
+            <li>
+              <a href="#">
+                <i class="fa fa-map-marker-alt"></i>
+                {{ site.concessionaria.endereco }}
+              </a>
+            </li>
+            <li>
+              <a href="tel:{{ site.concessionaria.telefone }}">
+                <i class="fa fa-phone"></i>
+                {{ site.concessionaria.telefone }}
+              </a>
+            </li>
+            <li>
+              <a href="mailto:{{ site.concessionaria.email }}">
+                <i class="fa fa-envelope"></i>
+                {{ site.concessionaria.email }}
+              </a>
+            </li>
+            <li>
+              <i class="fa fa-clock"></i>
+              {{ site.concessionaria.horario }}
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer bottom -->
+  <div class="footer-bottom">
+    <div class="container footer-bottom__inner">
+      <span class="copyright">Todos os direitos reservados &mdash; {{ site.title }}</span>
+      <ul class="footer-social">
+        <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+        <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+        <li>
+          <a href="https://wa.me/{{ site.concessionaria.whatsapp }}" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>

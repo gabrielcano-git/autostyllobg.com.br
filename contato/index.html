@@ -1,0 +1,67 @@
+---
+layout: default
+title: Contato
+description: Entre em contato com a AutoStyllo.
+permalink: /contato/
+---
+
+<section class="section">
+  <div class="container">
+    <h1>Contato</h1>
+    <div class="contato-grid">
+
+      <div class="contato-info">
+        <h2>Fale conosco</h2>
+        <ul class="contato-lista">
+          <li>
+            <strong>Endere&#231;o</strong>
+            <span>{{ site.concessionaria.endereco }}</span>
+          </li>
+          <li>
+            <strong>Telefone</strong>
+            <a href="tel:{{ site.concessionaria.telefone }}">{{ site.concessionaria.telefone }}</a>
+          </li>
+          <li>
+            <strong>E-mail</strong>
+            <a href="mailto:{{ site.concessionaria.email }}">{{ site.concessionaria.email }}</a>
+          </li>
+          <li>
+            <strong>Hor&#225;rio</strong>
+            <span>{{ site.concessionaria.horario }}</span>
+          </li>
+        </ul>
+        <a
+          href="https://wa.me/{{ site.concessionaria.whatsapp }}"
+          class="btn btn--whatsapp"
+          target="_blank"
+          rel="noopener"
+        >Chamar no WhatsApp</a>
+      </div>
+
+      <div class="contato-form">
+        <h2>Envie uma mensagem</h2>
+        <!-- Formulário estático — integre com Formspree, Netlify Forms, ou similar -->
+        <form action="https://formspree.io/f/SEU_ID_AQUI" method="POST" class="form">
+          <div class="form__grupo">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" required placeholder="Seu nome" />
+          </div>
+          <div class="form__grupo">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required placeholder="seu@email.com" />
+          </div>
+          <div class="form__grupo">
+            <label for="telefone">Telefone</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(xx) xxxxx-xxxx" />
+          </div>
+          <div class="form__grupo">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Como podemos ajudar?"></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary">Enviar mensagem</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>

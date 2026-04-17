@@ -1,0 +1,198 @@
+---
+layout: default
+---
+
+<!-- Hero section -->
+<section class="page-hero">
+  <div class="page-hero__overlay"></div>
+  <div class="container page-hero__content">
+    <h1>{{ page.title }}</h1>
+  </div>
+</section>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb-wrap">
+  <div class="container">
+    <ol class="breadcrumb-pill">
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      <li class="separator"><i class="fa fa-angle-right"></i></li>
+      <li><a href="{{ '/carros/' | relative_url }}">Carros</a></li>
+      <li class="separator"><i class="fa fa-angle-right"></i></li>
+      <li class="active">{{ page.title }}</li>
+    </ol>
+  </div>
+</div>
+
+<!-- Detalhes do carro -->
+<section class="section">
+  <div class="container">
+    <div class="carro-detalhe__grid">
+
+      <!-- Coluna esquerda: galeria + tabs -->
+      <div class="carro-detalhe__main">
+
+        <!-- Galeria -->
+        <div class="car-listing">
+          <div class="carro-galeria">
+            {% if page.imagens and page.imagens.size > 0 %}
+            <div class="galeria-principal">
+              <img
+                src="{{ page.imagens[0] }}"
+                alt="{{ page.title }}"
+                id="img-principal"
+                class="galeria-principal__img img-fluid"
+              />
+            </div>
+            {% if page.imagens.size > 1 %}
+            <div class="galeria-thumbs">
+              {% for img in page.imagens %}
+              <img
+                src="{{ img }}"
+                alt="{{ page.title }} — foto {{ forloop.index }}"
+                class="galeria-thumbs__item{% if forloop.first %} ativo{% endif %}"
+                onclick="trocarImagem(this)"
+              />
+              {% endfor %}
+            </div>
+            {% endif %}
+            {% else %}
+            <div class="galeria-placeholder">
+              <span>Sem imagem disponível</span>
+            </div>
+            {% endif %}
+          </div>
+
+          <!-- Tabs: Descrição | Opcionais -->
+          <div class="tabs-header">
+            <ul class="nav-tabs">
+              <li>
+                <a class="nav-tab-link active" data-tab="descricao" href="#">Descrição</a>
+              </li>
+              {% if page.opcionais and page.opcionais.size > 0 %}
+              <li>
+                <a class="nav-tab-link" data-tab="opcionais" href="#">Itens e Opcionais</a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+
+          <div class="tabs-content">
+            <div class="tab-pane active" id="tab-descricao">
+              <div class="tab-pane__body">
+                {% if content != "" %}
+                  {{ content }}
+                {% else %}
+                  <p class="c-light">Nenhuma descrição disponível para este veículo.</p>
+                {% endif %}
+              </div>
+            </div>
+
+            {% if page.opcionais and page.opcionais.size > 0 %}
+            <div class="tab-pane" id="tab-opcionais">
+              <div class="tab-pane__body">
+                <ul class="opcionais-list">
+                  {% for opcional in page.opcionais %}
+                  <li><i class="fa fa-check c-primary"></i> {{ opcional }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna direita: specs + contato -->
+      <div class="carro-detalhe__sidebar">
+
+        <!-- Card de specs -->
+        <div class="carro-specs-card">
+          <div class="card-body">
+            <h4>{{ page.title }}</h4>
+            <div class="carro-specs-card__preco c-primary">
+              {% if page.preco %}
+                R$ {{ page.preco | number_with_delimiter }}
+              {% else %}
+                Consulte
+              {% endif %}
+            </div>
+          </div>
+
+          <table class="specs-table">
+            <tbody>
+              {% if page.ano %}
+              <tr>
+                <td class="specs-table__label"><i class="flaticon-calendar"></i> Ano</td>
+                <td>{{ page.ano }}</td>
+              </tr>
+              {% endif %}
+              {% if page.marca %}
+              <tr>
+                <td class="specs-table__label"><i class="fa fa-car"></i> Marca</td>
+                <td>{{ page.marca }}</td>
+              </tr>
+              {% endif %}
+              {% if page.modelo %}
+              <tr>
+                <td class="specs-table__label"><i class="fa fa-tag"></i> Modelo</td>
+                <td>{{ page.modelo }}</td>
+              </tr>
+              {% endif %}
+              {% if page.combustivel %}
+              <tr>
+                <td class="specs-table__label"><i class="flaticon-fuel"></i> Combustível</td>
+                <td>{{ page.combustivel }}</td>
+              </tr>
+              {% endif %}
+              {% if page.cambio %}
+              <tr>
+                <td class="specs-table__label"><i class="flaticon-transport-2"></i> Câmbio</td>
+                <td>{{ page.cambio }}</td>
+              </tr>
+              {% endif %}
+              {% if page.cor %}
+              <tr>
+                <td class="specs-table__label"><i class="flaticon-ammunition"></i> Cor</td>
+                <td>{{ page.cor }}</td>
+              </tr>
+              {% endif %}
+              {% if page.km %}
+              <tr>
+                <td class="specs-table__label"><i class="flaticon-clock"></i> Quilometragem</td>
+                <td>{{ page.km }} km</td>
+              </tr>
+              {% endif %}
+              {% if page.portas %}
+              <tr>
+                <td class="specs-table__label"><i class="fa fa-door-open"></i> Portas</td>
+                <td>{{ page.portas }}</td>
+              </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Card de contato -->
+        <div class="carro-contato-card">
+          <div class="carro-contato-card__header">
+            <h6>Entrar em Contato</h6>
+          </div>
+          <div class="carro-contato-card__body">
+            <a
+              href="https://wa.me/{{ site.concessionaria.whatsapp }}?text=Olá!%20Tenho%20interesse%20no%20{{ page.title | url_encode }}"
+              class="btn btn--whatsapp btn--block"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+            </a>
+            <a href="tel:{{ site.concessionaria.telefone }}" class="btn btn--outline btn--block">
+              <i class="fa fa-phone"></i> {{ site.concessionaria.telefone }}
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,64 @@
+<header id="header-fix" class="main-header">
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="container top-bar__inner">
+      <div class="top-bar__left">
+        <ul>
+          <li>
+            <a href="mailto:{{ site.concessionaria.email }}">
+              <i class="fa fa-envelope"></i> {{ site.concessionaria.email }}
+            </a>
+          </li>
+          <li>
+            <a href="tel:{{ site.concessionaria.telefone }}">
+              <i class="fa fa-phone"></i> {{ site.concessionaria.telefone }}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="top-bar__right">
+        <ul>
+          <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+          <li>
+            <a href="https://wa.me/{{ site.concessionaria.whatsapp }}" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main navbar -->
+  <div class="container">
+    <nav class="navbar">
+      <a class="navbar-brand" href="{{ '/' | relative_url }}">
+        <img class="logo" src="{{ '/assets/images/logo.png' | relative_url }}" alt="{{ site.title }}" />
+      </a>
+
+      <button class="navbar-toggler" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navbarCollapse">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav">
+          <li class="nav-item{% if page.url == '/' %} current-menu-item{% endif %}">
+            <a href="{{ '/' | relative_url }}">Início</a>
+          </li>
+          <li class="nav-item{% if page.url contains '/carros' %} current-menu-item{% endif %}">
+            <a href="{{ '/carros/' | relative_url }}">Carros</a>
+          </li>
+          <li class="nav-item{% if page.url contains '/sobre' %} current-menu-item{% endif %}">
+            <a href="{{ '/sobre/' | relative_url }}">Sobre</a>
+          </li>
+          <li class="nav-item{% if page.url contains '/contato' %} current-menu-item{% endif %}">
+            <a href="{{ '/contato/' | relative_url }}">Contato</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,31 @@
+---
+layout: default
+title: Sobre Nós
+description: Conheça a história e os valores da AutoStyllo.
+permalink: /sobre/
+---
+
+<section class="section">
+  <div class="container container--narrow">
+    <h1>Sobre a {{ site.title }}</h1>
+    <p>
+      A {{ site.title }} é uma concessionária comprometida com a qualidade, transparência
+      e satisfação dos nossos clientes. Com um vasto estoque de veículos novos e seminovos,
+      oferecemos as melhores condições do mercado.
+    </p>
+    <p>
+      Nossa equipe está sempre pronta para ajudá-lo a encontrar o veículo ideal para
+      suas necessidades e orçamento, com atendimento personalizado e consultoria especializada.
+    </p>
+
+    <div class="sobre__info">
+      <h2>Informações</h2>
+      <ul>
+        <li><strong>Endereço:</strong> {{ site.concessionaria.endereco }}</li>
+        <li><strong>Telefone:</strong> <a href="tel:{{ site.concessionaria.telefone }}">{{ site.concessionaria.telefone }}</a></li>
+        <li><strong>E-mail:</strong> <a href="mailto:{{ site.concessionaria.email }}">{{ site.concessionaria.email }}</a></li>
+        <li><strong>Horário:</strong> {{ site.concessionaria.horario }}</li>
+      </ul>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,54 @@
+title: AutoStyllo
+description: Concessionária de carros — qualidade e confiança em cada negócio.
+url: "https://autostyllobg.com.br"
+baseurl: ""
+
+# Informações da concessionária
+concessionaria:
+  nome: AutoStyllo
+  telefone: "(xx) xxxx-xxxx"
+  whatsapp: "5500000000000"
+  email: contato@autostyllobg.com.br
+  endereco: "Rua Exemplo, 123 — Belo Horizonte, MG"
+  horario: "Seg–Sex: 08h–18h | Sáb: 08h–13h"
+
+# Coleções
+collections:
+  carros:
+    output: true
+    permalink: /carros/:slug/
+  banners:
+    output: false
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "carros"
+    values:
+      layout: "carro"
+  - scope:
+      path: ""
+      type: "banners"
+    values:
+      layout: null
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Build
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+timezone: America/Sao_Paulo
+
+# Excluir do build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
