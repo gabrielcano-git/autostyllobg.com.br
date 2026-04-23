@@ -4,11 +4,13 @@
     <div class="container top-bar__inner">
       <div class="top-bar__left">
         <ul>
+          {% if site.concessionaria.email %}
           <li>
             <a href="mailto:{{ site.concessionaria.email }}">
               <i class="fa fa-envelope"></i> {{ site.concessionaria.email }}
             </a>
           </li>
+          {% endif %}
           <li>
             <a href="tel:{{ site.concessionaria.telefone }}">
               <i class="fa fa-phone"></i> {{ site.concessionaria.telefone }}
@@ -18,10 +20,16 @@
       </div>
       <div class="top-bar__right">
         <ul>
-          <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
-          <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-          <li>
-            <a href="https://wa.me/{{ site.concessionaria.whatsapp }}" target="_blank" rel="noopener" aria-label="WhatsApp">
+         <li>
+           <a href="{{ site.concessionaria.facebook }}" target="_blank" rel="noopener" aria-label="Facebook">
+             <i class="fab fa-facebook"></i>
+           </a>
+         </li>
+         <li>
+          <a href="{{ site.concessionaria.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">             <i class="fab fa-instagram"></i>
+           </a>
+          </li>          <li>
+            <a href="{{ site.concessionaria.whatsapp_url }}" target="_blank" rel="noopener" aria-label="WhatsApp">
               <i class="fab fa-whatsapp"></i>
             </a>
           </li>

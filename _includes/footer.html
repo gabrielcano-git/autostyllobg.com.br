@@ -44,15 +44,16 @@
                 <i class="fa fa-phone"></i>
                 {{ site.concessionaria.telefone }}
               </a>
-            </li>
-            <li>
+              </li>
+              {% if site.concessionaria.email %}
+              <li>
               <a href="mailto:{{ site.concessionaria.email }}">
-                <i class="fa fa-envelope"></i>
-                {{ site.concessionaria.email }}
+               <i class="fa fa-envelope"></i>
+               {{ site.concessionaria.email }}
               </a>
-            </li>
-            <li>
-              <i class="fa fa-clock"></i>
+              </li>
+              {% endif %}
+              <li>              <i class="fa fa-clock"></i>
               {{ site.concessionaria.horario }}
             </li>
           </ul>
@@ -67,10 +68,16 @@
     <div class="container footer-bottom__inner">
       <span class="copyright">Todos os direitos reservados &mdash; {{ site.title }}</span>
       <ul class="footer-social">
-        <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
-        <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-        <li>
-          <a href="https://wa.me/{{ site.concessionaria.whatsapp }}" target="_blank" rel="noopener" aria-label="WhatsApp">
+       <li>
+         <a href="{{ site.concessionaria.facebook }}" target="_blank" rel="noopener" aria-label="Facebook">
+           <i class="fab fa-facebook"></i>
+         </a>
+       </li>
+       <li>
+         <a href="{{ site.concessionaria.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">           <i class="fab fa-instagram"></i>
+         </a>
+       </li>        <li>
+          <a href="{{ site.concessionaria.whatsapp_url }}" target="_blank" rel="noopener" aria-label="WhatsApp">
             <i class="fab fa-whatsapp"></i>
           </a>
         </li>

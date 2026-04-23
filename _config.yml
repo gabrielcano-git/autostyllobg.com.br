@@ -6,10 +6,13 @@ baseurl: ""
 # Informações da concessionária
 concessionaria:
   nome: AutoStyllo
-  telefone: "(xx) xxxx-xxxx"
-  whatsapp: "5500000000000"
-  email: contato@autostyllobg.com.br
-  endereco: "Rua Exemplo, 123 — Belo Horizonte, MG"
+  telefone: "(66) 99213-3574"
+  whatsapp: "+55 66 99213-3574"
+  whatsapp_url: "https://wa.me/message/R6432HU4D6F7I1"
+  instagram: "https://www.instagram.com/autostyllobg/"
+  facebook: "https://m.facebook.com/p/Auto-Styllo-Ve%C3%ADculos-100086536347400/"
+  email:
+  endereco: "Av. Ezequiel de Carvalho, QD302 LOTE 02 - JARDIM NOVA BARRA, Barra do Garças - MT, 78606-761"
   horario: "Seg–Sex: 08h–18h | Sáb: 08h–13h"
 
 # Coleções

@@ -23,9 +23,10 @@ permalink: /sobre/
       <ul>
         <li><strong>Endereço:</strong> {{ site.concessionaria.endereco }}</li>
         <li><strong>Telefone:</strong> <a href="tel:{{ site.concessionaria.telefone }}">{{ site.concessionaria.telefone }}</a></li>
+        {% if site.concessionaria.email %}
         <li><strong>E-mail:</strong> <a href="mailto:{{ site.concessionaria.email }}">{{ site.concessionaria.email }}</a></li>
-        <li><strong>Horário:</strong> {{ site.concessionaria.horario }}</li>
-      </ul>
+        {% endif %}
+        <li><strong>Horário:</strong> {{ site.concessionaria.horario }}</li>      </ul>
     </div>
   </div>
 </section>
