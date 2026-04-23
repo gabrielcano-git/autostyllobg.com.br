@@ -1,6 +1,7 @@
 ---
 layout: home
 title: Início
+preload_hero_lcp: true
 ---
 
 <!-- Banners / Hero -->
@@ -12,7 +13,13 @@ title: Início
     <div class="banner-item{% if forloop.first %} active{% endif %}">
       {% if banner.imagem %}
       <div class="banner-item__img">
-        <img src="{{ banner.imagem }}" alt="{{ banner.title }}" />
+        <img
+          src="{{ banner.imagem }}"
+          alt="{{ banner.title }}"
+          width="1920"
+          height="1080"
+          {% if forloop.first %}decoding="async" fetchpriority="high"{% else %}loading="lazy" fetchpriority="low"{% endif %}
+        />
       </div>
       {% endif %}
     </div>

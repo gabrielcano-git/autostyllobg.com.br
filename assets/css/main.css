@@ -277,6 +277,11 @@ section {
   display: block;
 }
 
+/* Evita salto de layout: área mínima até a imagem carregar (LCP) */
+.banner-item__img {
+  min-height: clamp(200px, 42vw, 650px);
+  background: #0a0a0a;
+}
 .banner-item__img img {
   width: 100%;
   max-height: 650px;
@@ -511,6 +516,7 @@ section {
 .galeria-principal {
   background: var(--cor-escura);
   overflow: hidden;
+  min-height: 200px;
 }
 
 .galeria-principal__img {

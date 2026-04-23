@@ -8,8 +8,21 @@
   {% seo %}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  {%- if page.preload_hero_lcp -%}
+  {%- assign lcp_banners = site.banners | where: "ativo", true -%}
+  {%- if lcp_banners.size > 0 -%}
+  {%- assign lcp_primeiro = lcp_banners | first -%}
+  {%- if lcp_primeiro.imagem -%}
+  <link rel="preload" as="image" href="{{ lcp_primeiro.imagem | escape }}" />
+  {%- endif -%}
+  {%- endif -%}
+  {%- endif -%}
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  </noscript>
   <link rel="stylesheet" href="{{ '/assets/css/flaticon.css' | relative_url }}" />
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
 </head>
@@ -26,6 +39,6 @@
     <img src="{{ '/assets/images/up-arrow.svg' | relative_url }}" alt="Voltar ao topo" />
   </div>
 
-  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
 </body>
 </html>

@@ -41,6 +41,10 @@ layout: default
                 alt="{{ page.title }}"
                 id="img-principal"
                 class="galeria-principal__img img-fluid"
+                width="1200"
+                height="800"
+                decoding="async"
+                fetchpriority="high"
               />
             </div>
             {% if page.imagens.size > 1 %}
@@ -50,6 +54,10 @@ layout: default
                 src="{{ img }}"
                 alt="{{ page.title }} — foto {{ forloop.index }}"
                 class="galeria-thumbs__item{% if forloop.first %} ativo{% endif %}"
+                width="80"
+                height="55"
+                loading="lazy"
+                decoding="async"
                 onclick="trocarImagem(this)"
               />
               {% endfor %}
