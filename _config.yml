@@ -1,9 +1,9 @@
 title: AutoStyllo
-description: Concessionária de carros — qualidade e confiança em cada negócio.
+description: Veículos de qualidade e confiança em cada negócio.
 url: "https://autostyllobg.com.br"
 baseurl: ""
 
-# Informações da concessionária
+# Informações da loja
 concessionaria:
   nome: AutoStyllo
   telefone: "(66) 99721-1955"

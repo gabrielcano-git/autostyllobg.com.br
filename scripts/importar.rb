@@ -13,10 +13,10 @@ require 'cgi'
 require 'set'
 require 'uri'
 
-API_BASE   = 'https://gabrielcanowp-djfpn.wpcomstaging.com/wp-json/wp/v2'
-ROOT_DIR   = File.expand_path('..', __dir__)
-CARROS_DIR = File.join(ROOT_DIR, '_carros')
-BANNERS_DIR = File.join(ROOT_DIR, '_banners')
+API_BASE    = ENV['WP_API_BASE'] || 'https://gabrielcanowp-djfpn.wpcomstaging.com/wp-json/wp/v2'
+ROOT_DIR    = File.expand_path('..', __dir__)
+CARROS_DIR  = ENV['CARROS_DIR']  || File.join(ROOT_DIR, '_carros')
+BANNERS_DIR = ENV['BANNERS_DIR'] || File.join(ROOT_DIR, '_banners')
 
 # ---------------------------------------------------------------------------
 # HTTP helpers
@@ -307,19 +307,30 @@ end
 # Main
 # ---------------------------------------------------------------------------
 
-FileUtils.mkdir_p(CARROS_DIR)
-FileUtils.mkdir_p(BANNERS_DIR)
+def run_import
+  FileUtils.mkdir_p(CARROS_DIR)
+  FileUtils.mkdir_p(BANNERS_DIR)
 
-puts '==> Limpando arquivos gerados anteriormente...'
-puts "    _carros/:"
-clean_wp_files(CARROS_DIR)
-puts "    _banners/:"
-clean_wp_files(BANNERS_DIR)
+  puts '==> Limpando arquivos gerados anteriormente...'
+  puts "    _carros/:"
+  clean_wp_files(CARROS_DIR)
+  puts "    _banners/:"
+  clean_wp_files(BANNERS_DIR)
 
-carros_importados  = import_carros
-banners_importados = import_banners
+  carros_importados  = import_carros
+  banners_importados = import_banners
 
-puts "\n==> Concluído!"
-puts "    Carros importados : #{carros_importados}"
-puts "    Banners importados: #{banners_importados}"
-puts "\nPróximo passo: bundle exec jekyll serve"
+  puts "\n==> Concluído!"
+  puts "    Carros importados : #{carros_importados}"
+  puts "    Banners importados: #{banners_importados}"
+  
+  {
+    carros: carros_importados,
+    banners: banners_importados
+  }
+end
+
+if __FILE__ == $0
+  run_import
+  puts "\nPróximo passo: bundle exec jekyll serve"
+end

@@ -15,4 +15,4 @@ imagens:
   - /assets/images/carros/civic-2022-2.jpg
 ---
 
-Honda Civic 2022 em excelente estado de conservação. Único dono, revisões em dia na concessionária. Completo com teto solar, câmera de ré, central multimídia e muito mais.
+Honda Civic 2022 em excelente estado de conservação. Único dono, revisões em dia na loja. Completo com teto solar, câmera de ré, central multimídia e muito mais.
