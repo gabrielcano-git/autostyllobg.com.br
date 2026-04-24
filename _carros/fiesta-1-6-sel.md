@@ -13,14 +13,14 @@ portas:
 destaque:
 opcionais: []
 imagens:
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-1-1.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-10-1.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-9-1.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-8-1.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-7-1.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-6-1.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-5-1.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-4-1.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-3-1.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-2-1.jpeg"
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-1-1.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-10-1.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-9-1.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-7-1.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-8-1.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-6-1.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-5-1.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-4-1.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-3-1.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/FIESTA-2-1.jpeg
 ---

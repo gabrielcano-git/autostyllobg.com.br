@@ -12,17 +12,17 @@ cor: BRANCA
 portas:
 destaque:
 opcionais:
-  - COMANDO NO VOLANTE
+- COMANDO NO VOLANTE
 imagens:
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-1.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-11.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-10.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-9.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-8.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-7.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-6.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-5.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-4.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-3.jpeg"
-  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-2.jpeg"
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-1.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-10.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-11.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-9.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-7.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-8.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-6.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-5.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-4.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-3.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/CRETA-2.jpeg
 ---
