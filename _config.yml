@@ -6,12 +6,12 @@ baseurl: ""
 # Informações da concessionária
 concessionaria:
   nome: AutoStyllo
-  telefone: "(66) 99213-3574"
-  whatsapp: "+55 66 99213-3574"
-  whatsapp_url: "https://wa.me/message/R6432HU4D6F7I1"
+  telefone: "(66) 99721-1955"
+  whatsapp: "+55 66 99721-1955"
+  whatsapp_url: "https://api.whatsapp.com/send/?phone=5566997211955&text=Ol%C3%A1%20tenho%20interesse%20em%20um%20carro%20do%20estoque"
   instagram: "https://www.instagram.com/autostyllobg/"
   facebook: "https://m.facebook.com/p/Auto-Styllo-Ve%C3%ADculos-100086536347400/"
-  email:
+  email: dedesouzaeireli@gmail.com
   endereco: "Av. Ezequiel de Carvalho, QD302 LOTE 02 - JARDIM NOVA BARRA, Barra do Garças - MT, 78606-761"
   horario: "Seg–Sex: 08h–18h | Sáb: 08h–13h"
 
