@@ -1,9 +1,9 @@
 ---
 wp_id: 132
-title: VOLKSWAGEN POLO 2024
+title: POLO 1.0 TSI
 marca: VOLKSWAGEN
 modelo: POLO
-ano: '2024'
+ano: "2024"
 km:
 preco:
 cambio: AUTOMÁTICO
@@ -13,17 +13,17 @@ portas:
 destaque:
 opcionais: []
 imagens:
-- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-1.jpeg
-- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-12.jpeg
-- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-10.jpeg
-- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-11.jpeg
-- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-9.jpeg
-- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-8.jpeg
-- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-6.jpeg
-- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-7.jpeg
-- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-5.jpeg
-- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-3.jpeg
-- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-4.jpeg
-- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-2.jpeg
-- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-1.png
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-1.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-12.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-10.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-11.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-9.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-8.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-6.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-7.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-5.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-3.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-4.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-2.jpeg"
+  - "https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/POLO-1.png"
 ---
