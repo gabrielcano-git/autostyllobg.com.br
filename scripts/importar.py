@@ -13,6 +13,8 @@ API_BASE = os.getenv('WP_API_BASE', 'https://gabrielcanowp-djfpn.wpcomstaging.co
 ROOT_DIR = Path(__file__).parent.parent.absolute()
 CARROS_DIR = os.getenv('CARROS_DIR', str(ROOT_DIR / '_carros'))
 BANNERS_DIR = os.getenv('BANNERS_DIR', str(ROOT_DIR / '_banners'))
+WP_USER = os.getenv('WP_USER')
+WP_APP_PASSWORD = os.getenv('WP_APP_PASSWORD')
 
 # ---------------------------------------------------------------------------
 # HTTP helpers
@@ -27,8 +29,8 @@ def wp_get(path, params=None):
         'User-Agent': 'Jekyll-Importer/1.0',
         'Accept': 'application/json'
     }
-    
-    response = requests.get(url, params=params, headers=headers)
+    auth = (WP_USER, WP_APP_PASSWORD) if WP_USER and WP_APP_PASSWORD else None
+    response = requests.get(url, params=params, headers=headers, auth=auth)
     if response.status_code != 200:
         raise Exception(f"HTTP {response.status_code} para {url}")
     
@@ -92,23 +94,23 @@ def featured_url(embedded):
         
     return first.get('source_url')
 
-def fetch_gallery(post_id, featured):
+def fetch_gallery(post_id, featured, acf_image_ids=None):
     try:
-        media_items, _ = wp_get('/media', params={'parent': post_id, 'per_page': 100})
-        urls = [m['source_url'] for m in media_items if m.get('source_url')]
-        
-        # Unique and preserving order
-        unique_urls = []
-        for u in urls:
-            if u not in unique_urls:
-                unique_urls.append(u)
-        
+        if acf_image_ids:
+            ids_str = ','.join(str(i) for i in acf_image_ids)
+            media_items, _ = wp_get('/media', params={'include': ids_str, 'per_page': 100})
+            id_to_url = {m['id']: m['source_url'] for m in media_items if m.get('source_url')}
+            urls = [id_to_url[i] for i in acf_image_ids if i in id_to_url]
+        else:
+            media_items, _ = wp_get('/media', params={'parent': post_id, 'per_page': 100})
+            urls = list(dict.fromkeys(m['source_url'] for m in media_items if m.get('source_url')))
+
         if featured:
-            if featured in unique_urls:
-                unique_urls.remove(featured)
-            unique_urls.insert(0, featured)
-            
-        return unique_urls
+            if featured in urls:
+                urls.remove(featured)
+            urls.insert(0, featured)
+
+        return urls
     except Exception as e:
         print(f"  AVISO: galeria do post {post_id} — {str(e)}")
         return [featured] if featured else []
@@ -116,6 +118,16 @@ def fetch_gallery(post_id, featured):
 # ---------------------------------------------------------------------------
 # File helpers
 # ---------------------------------------------------------------------------
+
+def format_preco(value):
+    if value is None:
+        return None
+    try:
+        v = float(value)
+        formatted = f"{v:,.2f}"  # "72,700.00" US format
+        return formatted.replace(',', 'X').replace('.', ',').replace('X', '.')  # "72.700,00"
+    except (ValueError, TypeError):
+        return value
 
 def clean_wp_files(directory):
     dir_path = Path(directory)
@@ -196,7 +208,10 @@ def import_carros():
             seen_slugs.add(slug)
             
             embedded = carro.get('_embedded', {})
-            
+            acf = carro.get('acf') or {}
+            if isinstance(acf, list):
+                acf = {}
+
             marca = first_term(embedded, 'marca')
             modelo = first_term(embedded, 'modelo')
             cambio = first_term(embedded, 'cambio')
@@ -216,24 +231,30 @@ def import_carros():
             title = raw_title if raw_title else (composed if composed else slug)
             
             featured = featured_url(embedded)
-            imagens = fetch_gallery(carro['id'], featured)
+            imagens = fetch_gallery(carro['id'], featured, acf.get('imagens'))
             
             body = html.unescape(carro.get('content', {}).get('rendered', '')).strip()
             
+            acf_opcionais = acf.get('itens_e_opcionais')
+            if isinstance(acf_opcionais, str) and acf_opcionais.strip():
+                acf_opcionais = [o.strip() for o in acf_opcionais.replace('\n', ',').split(',') if o.strip()]
+            elif not isinstance(acf_opcionais, list):
+                acf_opcionais = []
+
             frontmatter = {
                 'wp_id': carro['id'],
                 'title': title if title else slug,
                 'marca': marca,
                 'modelo': modelo,
                 'ano': ano_str,
-                'km': None,
-                'preco': None,
+                'km': acf.get('quilometragem'),
+                'preco': format_preco(acf.get('preco')),
                 'cambio': cambio,
                 'combustivel': combustivel,
                 'cor': cor,
                 'portas': None,
                 'destaque': None,
-                'opcionais': opcionais,
+                'opcionais': opcionais if opcionais else acf_opcionais,
                 'imagens': imagens,
             }
             

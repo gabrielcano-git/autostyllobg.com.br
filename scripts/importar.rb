@@ -13,10 +13,12 @@ require 'cgi'
 require 'set'
 require 'uri'
 
-API_BASE    = ENV['WP_API_BASE'] || 'https://gabrielcanowp-djfpn.wpcomstaging.com/wp-json/wp/v2'
-ROOT_DIR    = File.expand_path('..', __dir__)
-CARROS_DIR  = ENV['CARROS_DIR']  || File.join(ROOT_DIR, '_carros')
-BANNERS_DIR = ENV['BANNERS_DIR'] || File.join(ROOT_DIR, '_banners')
+API_BASE        = ENV['WP_API_BASE'] || 'https://gabrielcanowp-djfpn.wpcomstaging.com/wp-json/wp/v2'
+ROOT_DIR        = File.expand_path('..', __dir__)
+CARROS_DIR      = ENV['CARROS_DIR']  || File.join(ROOT_DIR, '_carros')
+BANNERS_DIR     = ENV['BANNERS_DIR'] || File.join(ROOT_DIR, '_banners')
+WP_USER         = ENV['WP_USER']
+WP_APP_PASSWORD = ENV['WP_APP_PASSWORD']
 
 # ---------------------------------------------------------------------------
 # HTTP helpers
@@ -34,6 +36,7 @@ def wp_get(path, params = {})
   request = Net::HTTP::Get.new(uri)
   request['User-Agent'] = 'Jekyll-Importer/1.0'
   request['Accept']     = 'application/json'
+  request.basic_auth(WP_USER, WP_APP_PASSWORD) if WP_USER && WP_APP_PASSWORD
 
   response = http.request(request)
 
@@ -99,16 +102,21 @@ end
 # Gallery
 # ---------------------------------------------------------------------------
 
-def fetch_gallery(post_id, featured)
-  media_items, = wp_get('/media', parent: post_id, per_page: 100)
-  urls = media_items.map { |m| m['source_url'] }.compact.uniq
-
-  if featured
-    urls.delete(featured)
-    urls.unshift(featured)
+def fetch_gallery(post_id, featured, acf_image_ids = nil)
+  if acf_image_ids&.any?
+    ids_str = acf_image_ids.join(',')
+    media_items, = wp_get('/media', include: ids_str, per_page: 100)
+    id_to_url = media_items.each_with_object({}) { |m, h| h[m['id']] = m['source_url'] if m['source_url'] }
+    acf_image_ids.filter_map { |i| id_to_url[i] }
+  else
+    media_items, = wp_get('/media', parent: post_id, per_page: 100)
+    urls = media_items.map { |m| m['source_url'] }.compact.uniq
+    if featured
+      urls.delete(featured)
+      urls.unshift(featured)
+    end
+    urls
   end
-
-  urls
 rescue => e
   warn "  AVISO: galeria do post #{post_id} — #{e.message}"
   featured ? [featured] : []
@@ -206,6 +214,8 @@ def import_carros
     seen_slugs << slug
 
     embedded = carro['_embedded'] || {}
+    acf = carro['acf']
+    acf = {} unless acf.is_a?(Hash)
 
     # Taxonomias
     marca      = first_term(embedded, 'marca')
@@ -227,10 +237,19 @@ def import_carros
 
     # Imagens
     featured   = featured_url(embedded)
-    imagens    = fetch_gallery(carro['id'], featured)
+    imagens    = fetch_gallery(carro['id'], featured, acf['imagens'])
 
     # Descrição (HTML do WP, usado como body do markdown)
     body = CGI.unescapeHTML(carro.dig('content', 'rendered').to_s).strip
+
+    acf_opcionais_raw = acf['itens_e_opcionais']
+    acf_opcionais = if acf_opcionais_raw.is_a?(Array)
+                      acf_opcionais_raw
+                    elsif acf_opcionais_raw.is_a?(String) && !acf_opcionais_raw.strip.empty?
+                      acf_opcionais_raw.gsub("\n", ',').split(',').map(&:strip).reject(&:empty?)
+                    else
+                      []
+                    end
 
     frontmatter = {
       'wp_id'       => carro['id'],
@@ -238,14 +257,14 @@ def import_carros
       'marca'       => marca,
       'modelo'      => modelo,
       'ano'         => ano_str,
-      'km'          => nil,
-      'preco'       => nil,
+      'km'          => acf['quilometragem'],
+      'preco'       => acf['preco'],
       'cambio'      => cambio,
       'combustivel' => combustivel,
       'cor'         => cor,
       'portas'      => nil,
       'destaque'    => nil,
-      'opcionais'   => opcionais,
+      'opcionais'   => opcionais.empty? ? acf_opcionais : opcionais,
       'imagens'     => imagens,
     }
 
