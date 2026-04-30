@@ -5,8 +5,7 @@ marca: YAMAHA
 modelo: VMAX
 ano: "2023"
 km:
-preco:
-cambio: AUTOMÁTICO
+preco: "10.000"
 combustivel: FLEX
 cor: VERDE
 portas:

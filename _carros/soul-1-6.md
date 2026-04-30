@@ -5,8 +5,7 @@ marca: KIA
 modelo: SOUL
 ano: "2010"
 km:
-preco:
-cambio: AUTOMÁTICO
+preco: "45.000"
 combustivel: FLEX
 cor: CINZA
 portas:

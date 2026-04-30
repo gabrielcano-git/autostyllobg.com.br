@@ -207,10 +207,13 @@ def import_carros():
             anos = sorted(extract_terms(embedded, 'ano'))
             ano_str = "/".join(anos) if anos else None
             
+            # Título do WordPress (prioridade)
             raw_title = html.unescape(carro.get('title', {}).get('rendered', '')).strip()
+            
+            # Título composto (fallback se rendered estiver vazio)
             parts = [p for p in [marca, modelo, ano_str] if p]
             composed = " ".join(parts)
-            title = composed if composed else raw_title
+            title = raw_title if raw_title else (composed if composed else slug)
             
             featured = featured_url(embedded)
             imagens = fetch_gallery(carro['id'], featured)

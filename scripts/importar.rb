@@ -218,10 +218,12 @@ def import_carros
     anos = extract_terms(embedded, 'ano').sort
     ano_str = anos.empty? ? nil : anos.join('/')
 
-    # Título composto
+    # Título do WordPress (prioridade)
     raw_title = CGI.unescapeHTML(carro.dig('title', 'rendered').to_s).strip
+    
+    # Título composto (fallback se rendered estiver vazio)
     composed  = [marca, modelo, ano_str].compact.join(' ')
-    title     = composed.empty? ? raw_title : composed
+    title     = raw_title.empty? ? (composed.empty? ? slug : composed) : raw_title
 
     # Imagens
     featured   = featured_url(embedded)

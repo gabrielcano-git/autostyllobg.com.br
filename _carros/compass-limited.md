@@ -5,8 +5,7 @@ marca: JEEP
 modelo: COMPASS
 ano: "2018"
 km:
-preco:
-cambio: AUTOMÁTICO
+preco: "145.000"
 combustivel: FLEX
 cor: MARROM
 portas:

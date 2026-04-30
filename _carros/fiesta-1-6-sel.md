@@ -5,8 +5,7 @@ marca: FORD
 modelo: FIESTA
 ano: 2016/2017
 km:
-preco:
-cambio: MANUAL
+preco: "48.000"
 combustivel: FLEX
 cor: BRANCA
 portas:

@@ -5,8 +5,7 @@ marca: FORD
 modelo: FIESTA
 ano: 2012/2013
 km:
-preco:
-cambio: MANUAL
+preco: "42.000"
 combustivel: FLEX
 cor: PRETA
 portas:

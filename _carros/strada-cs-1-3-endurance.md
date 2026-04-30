@@ -5,8 +5,7 @@ marca: FIAT
 modelo: STRADA
 ano: "2024"
 km:
-preco:
-cambio: MANUAL
+preco: "82.000"
 combustivel: FLEX
 cor: BRANCA
 portas:

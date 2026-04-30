@@ -5,8 +5,7 @@ marca: VOLKSWAGEN
 modelo: FOX
 ano: "2018"
 km:
-preco:
-cambio: MANUAL
+preco: "52.000"
 combustivel: FLEX
 cor: BRANCA
 portas:

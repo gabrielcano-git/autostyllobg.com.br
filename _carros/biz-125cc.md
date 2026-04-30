@@ -5,8 +5,7 @@ marca: HONDA
 modelo: BIZ
 ano: "2012"
 km:
-preco:
-cambio:
+preco: "15.000"
 combustivel: GASOLINA
 cor: VERMELHA
 portas:

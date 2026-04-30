@@ -5,8 +5,7 @@ marca: TOYOTA
 modelo: YARIS
 ano: 2024/2025
 km:
-preco:
-cambio: AUTOMÁTICO
+preco: "75.900"
 combustivel: FLEX
 cor: CINZA
 portas:

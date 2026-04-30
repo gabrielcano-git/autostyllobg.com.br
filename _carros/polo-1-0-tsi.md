@@ -5,8 +5,7 @@ marca: VOLKSWAGEN
 modelo: POLO
 ano: "2024"
 km:
-preco:
-cambio: AUTOMÁTICO
+preco: "85.000"
 combustivel: FLEX
 cor: PRATA
 portas:

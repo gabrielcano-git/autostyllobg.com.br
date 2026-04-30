@@ -5,8 +5,7 @@ marca: FORD
 modelo: RANGER
 ano: 2013/2014
 km:
-preco:
-cambio: MANUAL
+preco: "135.000"
 combustivel: FLEX
 cor: BRANCA
 portas:

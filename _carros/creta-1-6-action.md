@@ -5,8 +5,7 @@ marca: HYUNDAI
 modelo: CRETA
 ano: 2024/2025
 km:
-preco:
-cambio: AUTOMÁTICO
+preco: "105.000"
 combustivel: FLEX
 cor: BRANCA
 portas:

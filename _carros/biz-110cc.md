@@ -5,8 +5,7 @@ marca: HONDA
 modelo: BIZ
 ano: "2016"
 km:
-preco:
-cambio:
+preco: "12.000"
 combustivel:
 cor: PRETA
 portas:

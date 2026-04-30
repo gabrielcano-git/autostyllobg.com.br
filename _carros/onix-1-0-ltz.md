@@ -5,8 +5,7 @@ marca: CHEVROLET
 modelo: ONIX
 ano: "2020"
 km:
-preco:
-cambio: AUTOMÁTICO
+preco: "58.000"
 combustivel: FLEX
 cor: PRETA
 portas:

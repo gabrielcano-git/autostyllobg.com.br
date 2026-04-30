@@ -5,8 +5,7 @@ marca: HONDA
 modelo: civic
 ano: 2013/2014
 km:
-preco:
-cambio: AUTOMÁTICO
+preco: "68.000"
 combustivel: FLEX
 cor: BRANCA
 portas:

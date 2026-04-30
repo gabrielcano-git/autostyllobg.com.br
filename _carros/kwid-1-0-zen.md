@@ -5,8 +5,7 @@ marca: RENAULT
 modelo: KWID
 ano: 2023/2024
 km:
-preco:
-cambio: MANUAL
+preco: "45.000"
 combustivel: FLEX
 cor: PRATA
 portas:

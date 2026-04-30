@@ -5,8 +5,7 @@ marca: CHEVROLET
 modelo: TRACKER
 ano: "2024"
 km:
-preco:
-cambio: AUTOMÁTICO
+preco: "98.000"
 combustivel: FLEX
 cor: BRANCA
 portas:

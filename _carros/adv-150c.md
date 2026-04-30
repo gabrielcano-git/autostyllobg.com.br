@@ -5,8 +5,7 @@ marca: HONDA
 modelo: ADV
 ano: 2023/2024
 km:
-preco:
-cambio: AUTOMÁTICO
+preco: "18.000"
 combustivel: FLEX
 cor: VERDE
 portas:

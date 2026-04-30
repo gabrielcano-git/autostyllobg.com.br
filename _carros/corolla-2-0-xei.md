@@ -5,8 +5,7 @@ marca: TOYOTA
 modelo: COROLLA
 ano: 2012/2013
 km:
-preco:
-cambio: AUTOMÁTICO
+preco: "65.000"
 combustivel: FLEX
 cor: PRATA
 portas:

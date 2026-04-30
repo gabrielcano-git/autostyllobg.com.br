@@ -5,8 +5,7 @@ marca: CHEVROLET
 modelo: ONIX
 ano: 2022/2023
 km:
-preco:
-cambio: MANUAL
+preco: "72.000"
 combustivel: FLEX
 cor: BRANCA
 portas:

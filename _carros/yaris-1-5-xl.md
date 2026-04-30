@@ -5,8 +5,7 @@ marca: TOYOTA
 modelo: YARIS
 ano: "2020"
 km:
-preco:
-cambio: AUTOMÁTICO
+preco: "75.900"
 combustivel: FLEX
 cor: PRATA
 portas:

@@ -5,8 +5,7 @@ marca: FIAT
 modelo: "500"
 ano: 2012/2013
 km:
-preco:
-cambio: AUTOMÁTICO
+preco: "42.000"
 combustivel: FLEX
 cor: PRETA
 portas:
