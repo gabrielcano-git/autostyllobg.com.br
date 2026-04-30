@@ -1,0 +1,6 @@
+_site/
+.jekyll-cache/
+.env
+*.log
+Gemfile
+Gemfile.lock

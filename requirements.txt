@@ -2,3 +2,4 @@ flask
 requests
 PyYAML
 gunicorn
+python-dotenv
