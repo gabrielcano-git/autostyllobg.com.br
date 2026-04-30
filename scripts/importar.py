@@ -7,6 +7,9 @@ import requests
 import html
 from urllib.parse import urlencode
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).parent.parent / '.env')
 
 # Configurações
 API_BASE = os.getenv('WP_API_BASE', 'https://gabrielcanowp-djfpn.wpcomstaging.com/wp-json/wp/v2')
