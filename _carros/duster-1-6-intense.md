@@ -13,5 +13,16 @@ portas:
 destaque:
 opcionais: []
 imagens:
-- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/Carro-Em-Preparacao-Loja-De-Carros-Moderno-Preto-E-Vermelho-Post-Para-Instagram.png
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/DUSTER-01.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/DUSTER-02.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/DUSTER-03.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/DUSTER-05.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/DUSTER-06.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/DUSTER-07.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/DUSTER-08.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/DUSTER-09.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/DUSTER-10.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/DUSTER-11.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/DUSTER-12.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/DUSTER-13.jpeg
 ---
