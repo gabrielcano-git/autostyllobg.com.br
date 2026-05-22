@@ -1,6 +1,6 @@
 ---
 wp_id: 314
-title: YARIS 1.5 XL
+title: YARIS 1.5 xl
 marca: TOYOTA
 modelo: YARIS
 ano: 2024/2025
