@@ -1,0 +1,38 @@
+# Jekyll build output
+_site/
+
+# Conteúdo gerado pelo importador (criado em runtime, não em build time)
+_carros/
+_banners/
+
+# Ruby / Bundler / Jekyll — não necessários para a imagem Python
+.bundle/
+vendor/
+Gemfile
+Gemfile.lock
+
+# Cache do Jekyll
+.jekyll-cache/
+.jekyll-metadata/
+.sass-cache/
+
+# Nunca enviar secrets para o Cloud Build
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Editor / OS
+.DS_Store
+*.swp
+*.swo
+
+# Ferramentas locais
+.cursor/
+.agents/
+
+# Docker Compose local (apenas para dev Jekyll, não necessário no Cloud Build)
+docker-compose.yml

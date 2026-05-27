@@ -1,0 +1,57 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: autostyllobg-importador
+  labels:
+    cloud.googleapis.com/location: southamerica-east1
+  annotations:
+    run.googleapis.com/ingress: all
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: '0'
+        autoscaling.knative.dev/maxScale: '1'
+        run.googleapis.com/timeout: '300s'
+    spec:
+      serviceAccountName: autostyllobg-importador-sa@387238171298.iam.gserviceaccount.com
+      containers:
+        - image: southamerica-east1-docker.pkg.dev/387238171298/autostyllobg-importador/app:latest
+          ports:
+            - name: http1
+              containerPort: 8080
+          env:
+            - name: WP_USER
+              valueFrom:
+                secretKeyRef:
+                  name: WP_USER
+                  key: latest
+            - name: WP_APP_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: WP_APP_PASSWORD
+                  key: latest
+            - name: IMPORT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: IMPORT_TOKEN
+                  key: latest
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: GITHUB_TOKEN
+                  key: latest
+            - name: GIT_USER_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: GIT_USER_NAME
+                  key: latest
+            - name: GIT_USER_EMAIL
+              valueFrom:
+                secretKeyRef:
+                  name: GIT_USER_EMAIL
+                  key: latest
+          resources:
+            limits:
+              cpu: '1'
+              memory: 512Mi

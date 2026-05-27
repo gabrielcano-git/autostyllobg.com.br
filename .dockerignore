@@ -1,6 +1,15 @@
 _site/
+_carros/
+_banners/
 .jekyll-cache/
+.jekyll-metadata/
+.sass-cache/
 .env
 *.log
 Gemfile
 Gemfile.lock
+.bundle/
+vendor/
+__pycache__/
+*.pyc
+docker-compose.yml

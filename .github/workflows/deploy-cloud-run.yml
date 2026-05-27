@@ -1,0 +1,53 @@
+name: Deploy to Cloud Run
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  PROJECT_ID: "387238171298"
+  REGION: southamerica-east1
+  IMAGE: southamerica-east1-docker.pkg.dev/387238171298/autostyllobg-importador/app
+  WIF_PROVIDER: projects/387238171298/locations/global/workloadIdentityPools/github/providers/github
+  SERVICE_ACCOUNT: autostyllobg-importador-sa@387238171298.iam.gserviceaccount.com
+
+jobs:
+  deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ env.WIF_PROVIDER }}
+          service_account: ${{ env.SERVICE_ACCOUNT }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker for Artifact Registry
+        run: gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ env.IMAGE }}:${{ github.sha }}
+            ${{ env.IMAGE }}:latest
+
+      - name: Deploy to Cloud Run
+        run: |
+          sed "s|:latest|:${{ github.sha }}|g" service.yaml \
+            | gcloud run services replace - \
+              --region ${{ env.REGION }} \
+              --project ${{ env.PROJECT_ID }}

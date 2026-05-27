@@ -1,0 +1,21 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - build
+      - --tag
+      - 'southamerica-east1-docker.pkg.dev/387238171298/autostyllobg-importador/app:$COMMIT_SHA'
+      - --tag
+      - 'southamerica-east1-docker.pkg.dev/387238171298/autostyllobg-importador/app:latest'
+      - .
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - push
+      - '--all-tags'
+      - 'southamerica-east1-docker.pkg.dev/387238171298/autostyllobg-importador/app'
+
+images:
+  - 'southamerica-east1-docker.pkg.dev/387238171298/autostyllobg-importador/app'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
