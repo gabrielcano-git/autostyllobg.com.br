@@ -4,8 +4,8 @@ title: BIZ 125cc
 marca: HONDA
 modelo: BIZ
 ano: '2012'
-km:
-preco:
+km: 62989
+preco: 12.700,00
 cambio:
 combustivel: GASOLINA
 cor: VERMELHA
@@ -14,7 +14,9 @@ destaque:
 opcionais: []
 imagens:
 - https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/RED-1.jpeg
-- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-01-28-at-16.58.30.jpeg
-- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-01-28-at-16.58.29-4.jpeg
 - https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-01-28-at-16.58.29-3.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-01-28-at-16.58.29-4.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-01-28-at-16.58.30.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2025/04/WhatsApp-Image-2026-05-06-at-13.01.06.jpeg
+- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2025/04/WhatsApp-Image-2026-05-06-at-13.06.06.jpeg
 ---
