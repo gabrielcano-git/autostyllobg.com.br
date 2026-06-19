@@ -11,7 +11,7 @@ combustivel: FLEX
 cor: BRANCA
 portas:
 destaque:
-opcionais: []
-imagens:
-- https://gabrielcanowp-djfpn.wpcomstaging.com/wp-content/uploads/2026/04/Carro-Em-Preparacao-Loja-De-Carros-Moderno-Preto-E-Vermelho-Post-Para-Instagram.png
+opcionais:
+- item-opcional: ''
+imagens: []
 ---
