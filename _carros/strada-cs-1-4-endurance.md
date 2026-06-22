@@ -6,7 +6,7 @@ modelo: STRADA
 ano: '2022'
 km: 62458
 preco: 72.700,00
-cambio:
+cambio: MANUAL
 combustivel: FLEX
 cor: BRANCA
 portas:
