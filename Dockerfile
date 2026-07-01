@@ -2,7 +2,11 @@
 FROM python:3.12-slim
 
 # Instale dependências do sistema
-RUN apt-get update -qq && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+RUN apt-get update -qq \
+    && apt-get install -y --no-install-recommends ca-certificates git \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV PYTHONUNBUFFERED=1
 
 # Configura o diretório de trabalho
 WORKDIR /app

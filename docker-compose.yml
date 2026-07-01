@@ -1,4 +1,16 @@
 services:
+  importador:
+    build: .
+    container_name: autostyllobg_importador
+    ports:
+      - "8080:8080"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      - GITHUB_REPOSITORY=${GITHUB_REPOSITORY:-gabrielcano-git/autostyllobg.com.br}
+      - GIT_BRANCH=${GIT_BRANCH:-main}
+
   jekyll:
     image: jekyll/jekyll:4.2.2
     container_name: autostyllobg_jekyll

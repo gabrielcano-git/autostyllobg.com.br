@@ -12,7 +12,7 @@ spec:
       annotations:
         autoscaling.knative.dev/minScale: '0'
         autoscaling.knative.dev/maxScale: '1'
-        run.googleapis.com/timeout: '300s'
+        run.googleapis.com/timeout: '900s'
     spec:
       serviceAccountName: autostyllobg-importador-sa@387238171298.iam.gserviceaccount.com
       containers:

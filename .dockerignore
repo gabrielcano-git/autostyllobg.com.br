@@ -1,6 +1,7 @@
 _site/
 _carros/
 _banners/
+.git/
 .jekyll-cache/
 .jekyll-metadata/
 .sass-cache/

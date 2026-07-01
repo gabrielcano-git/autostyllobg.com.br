@@ -2,6 +2,26 @@
 
 Site institucional da Auto Styllo BG.
 
+## Importador WordPress via Cloud Run
+
+O serviço em `scripts/app.py` expõe `POST /import` para importar os carros e banners do WordPress, gerar os arquivos Markdown em `_carros/` e `_banners/`, commitar as alterações na branch `main` e fazer push para o GitHub. Esse push dispara o workflow de GitHub Pages.
+
+### Teste local com Docker
+
+Crie um arquivo `.env` a partir de `.env.example` e preencha os tokens:
+
+```bash
+docker compose up importador
+curl -X POST http://localhost:8080/import \
+  -H "Authorization: Bearer $IMPORT_TOKEN"
+```
+
+Variáveis obrigatórias para execução:
+
+- `IMPORT_TOKEN`: token bearer exigido pelo endpoint.
+- `GITHUB_TOKEN`: PAT do GitHub com permissão de push no repositório.
+- `WP_USER` e `WP_APP_PASSWORD`: credenciais do WordPress, quando a API exigir autenticação.
+
 ## Gerenciamento de Banners
 
 Os banners da página inicial são gerenciados de forma dinâmica através de arquivos Markdown localizados na pasta `_banners/`.

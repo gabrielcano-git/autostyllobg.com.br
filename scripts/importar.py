@@ -14,8 +14,6 @@ load_dotenv(Path(__file__).parent.parent / '.env')
 # Configurações
 API_BASE = os.getenv('WP_API_BASE', 'https://gabrielcanowp-djfpn.wpcomstaging.com/wp-json/wp/v2')
 ROOT_DIR = Path(__file__).parent.parent.absolute()
-CARROS_DIR = os.getenv('CARROS_DIR', str(ROOT_DIR / '_carros'))
-BANNERS_DIR = os.getenv('BANNERS_DIR', str(ROOT_DIR / '_banners'))
 WP_USER = os.getenv('WP_USER')
 WP_APP_PASSWORD = os.getenv('WP_APP_PASSWORD')
 
@@ -42,7 +40,7 @@ def wp_get(path, params=None):
     
     return body, total_pages
 
-def wp_get_all(path, params=None):
+def wp_get_all(path, params=None, required=False):
     if params is None:
         params = {}
     
@@ -63,6 +61,8 @@ def wp_get_all(path, params=None):
             page += 1
     except Exception as e:
         print(f"  AVISO: falha ao buscar {path} — {str(e)}")
+        if required:
+            raise
         
     return all_items
 
@@ -188,10 +188,10 @@ def write_md(filepath, frontmatter, body=None):
 # Import: Carros
 # ---------------------------------------------------------------------------
 
-def import_carros():
+def import_carros(carros_dir):
     print("\n==> Importando carros...")
     
-    carros = wp_get_all('/carro', params={'_embed': 1})
+    carros = wp_get_all('/carro', params={'_embed': 1}, required=True)
     total = len(carros)
     imported = 0
     seen_slugs = set()
@@ -261,7 +261,7 @@ def import_carros():
                 'imagens': imagens,
             }
             
-            filepath = Path(CARROS_DIR) / f"{slug}.md"
+            filepath = Path(carros_dir) / f"{slug}.md"
             write_md(filepath, frontmatter, body)
             
             imported += 1
@@ -275,10 +275,10 @@ def import_carros():
 # Import: Banners
 # ---------------------------------------------------------------------------
 
-def import_banners():
+def import_banners(banners_dir):
     print("\n==> Importando banners...")
     
-    banners = wp_get_all('/banner', params={'_embed': 1})
+    banners = wp_get_all('/banner', params={'_embed': 1}, required=True)
     total = len(banners)
     imported = 0
     
@@ -305,7 +305,7 @@ def import_banners():
                 'ordem': idx + 1,
             }
             
-            filepath = Path(BANNERS_DIR) / f"{slug}.md"
+            filepath = Path(banners_dir) / f"{slug}.md"
             write_md(filepath, frontmatter)
             
             imported += 1
@@ -319,18 +319,22 @@ def import_banners():
 # Main
 # ---------------------------------------------------------------------------
 
-def run_import():
-    Path(CARROS_DIR).mkdir(parents=True, exist_ok=True)
-    Path(BANNERS_DIR).mkdir(parents=True, exist_ok=True)
+def run_import(root_dir=None, carros_dir=None, banners_dir=None):
+    root = Path(root_dir).absolute() if root_dir else ROOT_DIR
+    carros_path = Path(carros_dir) if carros_dir else Path(os.getenv('CARROS_DIR', root / '_carros'))
+    banners_path = Path(banners_dir) if banners_dir else Path(os.getenv('BANNERS_DIR', root / '_banners'))
+
+    carros_path.mkdir(parents=True, exist_ok=True)
+    banners_path.mkdir(parents=True, exist_ok=True)
     
     print('==> Limpando arquivos gerados anteriormente...')
     print("    _carros/:")
-    clean_wp_files(CARROS_DIR)
+    clean_wp_files(carros_path)
     print("    _banners/:")
-    clean_wp_files(BANNERS_DIR)
+    clean_wp_files(banners_path)
     
-    carros_importados = import_carros()
-    banners_importados = import_banners()
+    carros_importados = import_carros(carros_path)
+    banners_importados = import_banners(banners_path)
     
     print("\n==> Concluído!")
     print(f"    Carros importados : {carros_importados}")
